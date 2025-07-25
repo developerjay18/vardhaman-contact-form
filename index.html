@@ -338,8 +338,14 @@
             // Encode message for URL
             const encodedMessage = encodeURIComponent(whatsappMessage);
             
-            // Redirect to WhatsApp with the message
-            window.open(`https://wa.me/917990334622?text=${encodedMessage}`, '_blank');
+            // Create and click a link instead of using window.open
+            const whatsappLink = document.createElement('a');
+            whatsappLink.href = `https://wa.me/917990334622?text=${encodedMessage}`;
+            whatsappLink.setAttribute('target', '_blank');
+            whatsappLink.setAttribute('rel', 'noopener noreferrer');
+            document.body.appendChild(whatsappLink);
+            whatsappLink.click();
+            document.body.removeChild(whatsappLink);
         }
     </script>
 </body>
