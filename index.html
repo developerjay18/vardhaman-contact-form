@@ -206,6 +206,15 @@
         <div class="form-container">
             <form id="jewelleryForm">
                 <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <div class="form-group-title">Name</div>
+                            <input type="text" id="name" name="name" placeholder="Enter your name">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
                     <div class="col-6">
                         <div class="form-group">
                             <div class="form-group-title">Metal</div>
@@ -318,6 +327,7 @@
         // Form submission to WhatsApp
         function submitForm() {
             // Get form values
+            const name = document.getElementById('name').value;
             const metal = document.getElementById('metal').value;
             const metalOther = document.getElementById('metal-other').value;
             const stone = document.getElementById('stone').value;
@@ -329,6 +339,7 @@
             
             // Format message for WhatsApp
             let whatsappMessage = "Custom Jewellery Request:\n\n";
+            whatsappMessage += "Name: " + name + "\n";
             whatsappMessage += "Metal: " + (metal === 'others' ? metalOther : metal) + "\n";
             whatsappMessage += "Stone: " + (stone === 'others' ? stoneOther : stone) + "\n";
             whatsappMessage += "Jewellery: " + (jewellery === 'other' ? jewelleryOther : jewellery) + "\n";
